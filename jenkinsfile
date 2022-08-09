@@ -3,7 +3,7 @@ pipeline{
 	agent any
 
 	environment {
-		DOCKERHUB_CREDENTIALS=credentials('hub-dev')
+		DOCKERHUB_CREDENTIALS=credentials('theva2811')
 	}
 
 	stages {
@@ -11,7 +11,7 @@ pipeline{
 		stage('Build') {
 
 			steps {
-				sh 'docker build -t dev/nodeapp:latest .'
+				sh 'docker build -t dev .'
 			}
 		}
 
@@ -25,7 +25,7 @@ pipeline{
 		stage('Push') {
 
 			steps {
-				sh 'docker push theva2811/node-pipelineproject:latest'
+				sh 'docker push dev theva2811/node-pipelineproject:latest'
 			}
 		}
 	}
